@@ -89,7 +89,7 @@ constexpr auto first_name = yuri::reflection::get_name<0, Person>; // "name"
 
 **要求:**
 - 类型 `T` 必须是聚合类型 (`std::is_aggregate_v<T>`)
-- 仅支持编译时反射
+- 类型 `T` 成员不能包含数组(`int a[5]`)
 
 ---
 
