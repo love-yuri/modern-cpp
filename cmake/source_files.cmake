@@ -1,0 +1,12 @@
+# 收集模块文件
+file(GLOB IXX_MODULES
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.ixx
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/utils/*.ixx
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/reflection/*.ixx
+)
+
+# 收集源文件
+file(GLOB_RECURSE PROJECT_SOURCES
+    CONFIGURE_DEPENDS
+    ${IXX_MODULES}
+)
