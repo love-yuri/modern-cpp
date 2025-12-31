@@ -1,3 +1,4 @@
+// ReSharper disable CppTooWideScopeInitStatement
 export module struct_reflection:member_names;
 
 import std;
@@ -61,7 +62,7 @@ consteval std::string_view member_name_msvc() {
   constexpr std::string_view full_name = FUNCTION_SIGNATURE;
 
   constexpr auto start_index = full_name.rfind("->");
-  constexpr auto end_index = full_name.rfind("}");
+  constexpr auto end_index = full_name.rfind('}');
   if constexpr (start_index != n_pos && end_index != n_pos) {
     return full_name.substr(start_index + 2, end_index - start_index - 2);
   }
@@ -78,8 +79,8 @@ template <auto T>
 consteval std::string_view member_name_clang() {
   constexpr std::string_view full_name = FUNCTION_SIGNATURE;
 
-  constexpr auto start_index = full_name.rfind(".");
-  constexpr auto end_index = full_name.rfind("}");
+  constexpr auto start_index = full_name.rfind('.');
+  constexpr auto end_index = full_name.rfind('}');
   if constexpr (start_index != n_pos && end_index != n_pos) {
     return full_name.substr(start_index + 1, end_index - start_index - 1);
   }
